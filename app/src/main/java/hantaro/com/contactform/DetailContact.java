@@ -61,6 +61,7 @@ public class DetailContact extends AppCompatActivity {
         if(keyCode == KeyEvent.KEYCODE_BACK){
             Intent intent = new Intent(DetailContact.this, MainActivity.class);
             startActivity(intent);
+            finish();
         }
         return super.onKeyDown(keyCode, event);
     }
@@ -68,7 +69,9 @@ public class DetailContact extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == android.R.id.home){
-            startNewAcitivity();
+            Intent intent = new Intent(DetailContact.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
