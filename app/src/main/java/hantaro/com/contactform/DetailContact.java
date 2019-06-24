@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DetailContact extends AppCompatActivity {
     public static final String NAME_KEY = "name";
@@ -57,9 +59,18 @@ public class DetailContact extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == KeyEvent.KEYCODE_BACK){
-            startNewAcitivity();
+            Intent intent = new Intent(DetailContact.this, MainActivity.class);
+            startActivity(intent);
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home){
+            startNewAcitivity();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void startNewAcitivity(){
